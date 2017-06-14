@@ -2,7 +2,8 @@ import Ember from 'ember';
 /* global citeproc */
 
 export default Ember.Component.extend({
-  makeCitations: function(citationData){
+  makeCitations: function(data){
+      var citationData = JSON.parse(data);
      var chosenStyleID = "chicago-fullnote-bibliography";
      var citations = {};
      var itemIDs = [];
@@ -51,15 +52,13 @@ export default Ember.Component.extend({
   didRender(){
     this._super(...arguments);
     var newCite = document.getElementById("json-text").value;
-    var data = JSON.parse(newCite);
-    this.makeCitations(data);
+    this.makeCitations(newCite);
   },
 
   actions: {
       updatesCitations: function() {
         var newCite = document.getElementById("json-text").value;
-        var data = JSON.parse(newCite);
-        this.makeCitations(data);
+        this.makeCitations(newCite);
       }
   }
 });
