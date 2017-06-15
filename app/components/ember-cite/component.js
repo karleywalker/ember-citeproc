@@ -1,5 +1,5 @@
 import Ember from 'ember';
-/* global citeproc */
+/* global CSL */
 
 export default Ember.Component.extend({
   makeCitations: function(data){
@@ -36,14 +36,14 @@ export default Ember.Component.extend({
          var styleAsText = xhr.responseText;
          var citeproc = new CSL.Engine(citeprocSys, styleAsText);
          return citeproc;
-       };
+       }
 
        function processorOutput() {
          var citeproc = getProcessor(chosenStyleID);
          citeproc.updateItems(itemIDs);
          var bibResult = citeproc.makeBibliography();
          return bibResult[1].join('\n');
-       };
+       }
 
        var content = document.getElementById("csl-content-block");
        content.innerHTML = processorOutput();
