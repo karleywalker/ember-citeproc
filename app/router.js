@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('biblio');
+  this.route('cite-display');
 });
 
 export default Router;

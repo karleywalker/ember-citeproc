@@ -2,7 +2,6 @@
     margin-bottom: 1em;
     background: #efefef;
     padding: 0.5em;
-    border-radius: 0.5em;
 }
 
 .citation {
@@ -10,16 +9,17 @@
 }
 #csl-outer-block {
     max-width: 40em;
+    padding: 10px;
 }
 #csl-inner-block {
     max-width: 40em;
     bottom: 17em;
     left: 2em;
+    padding: 10px;
 }
 #csl-content-block {
     background:white;
     border: solid black 1px;
-    overflow-y: scroll;
     padding: 0.5em;
 }
 
@@ -68,9 +68,8 @@
 }
 #dynamic-editing, #my-amazing-bibliography {
     padding:1em;
-    border: 1px solid #999999;
-    background: #efefef;
-    border-radius: 1em;
+    color: white ;
+    background: #204762;
     margin-bottom: 1em;
 }
 #dynamic-editing p {
