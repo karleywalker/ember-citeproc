@@ -8,13 +8,13 @@
     <div class="col-sm-6" id="csl-outer-block">
       <div id="csl-inner-block">
         <div class="csl-content-block" id="csl-content-block">
-            <form>
+            <form class="add-citation-form">
               <div class="row">
                 <div class="col-sm-5 form-group">
                     {{input value=family-name id='family-name' class="form-control" placeholder="Family Name"}}
                 </div>
                 <div class="col-sm-2 form-group">
-                    {{input value=middle-initial id='middle initial' class="form-control" placeholder="M.I."}}
+                    {{input value=middle-initial id='middle-initial' class="form-control" placeholder="M.I."}}
                 </div>
                 <div class="col-sm-5 form-group">
                     {{input value=given-name id='given-name' class="form-control" placeholder="Given Name"}}
@@ -48,20 +48,58 @@
                       {{input value=date-issued id='date-issued' class="form-control" placeholder="Date Issued"}}
                   </div>
               </div>
-              <div class="form-group">
-                  {{input value=doi id='doi' class="form-control" placeholder="DOI"}}
+              <div class="row">
+                  <div class="col-sm-6 form-group">
+                      {{input value=doi id='doi' class="form-control" placeholder="DOI"}}
+                  </div>
+                  <div class="col-sm-6 form-group">
+                      <select disabled={{disabled}} class="{{class}}" {{action 'change' on='change'}}>
+                        {{#each content as |item|}}
+                          <option value={{item}}>
+                            <p>{{item}}</p>
+                          </option>
+                        {{/each}}
+                      </select>
+                  </div>
               </div>
               <div class="form-group">
                   {{input value=url id='url' class="form-control" placeholder="URL"}}
               </div>
-              <div class="form-group">
-                  <!-- {{input value=type id='type' class="form-control" placeholder="Type"}} -->
-                  {{#x-select action="selectType"}}
-                    {{#x-option value='default' selected=true}}Type{{/x-option}}
-                    {{#x-option value='article'}}Article{{/x-option}}
-                    {{#x-option value='journal'}}Journal{{/x-option}}
-                  {{/x-select}}
+              <div class="row">
+                <div class="col-sm-1"></div>
+                <button class="col-sm-10 btn btn-default" {{action "formExtend"}}>Advanced</button>
+                <div class="col-sm-1"></div>
+              </div><br>
+              {{#if isOpened }}
+              <div class="row">
+                <div class="col-sm-3 form-group">
+                    {{input value=prefix id='prefix' class="form-control" placeholder="Prefix"}}
+                </div>
+                <div class="col-sm-3 form-group">
+                    {{input value=suffix id='suffix' class="form-control" placeholder="Suffix"}}
+                </div>
+                <div class="col-sm-6 form-group">
+                    {{input value=journal-abbr id='journal-abbr' class="form-control" placeholder="Journal Abbr."}}
+                </div>
               </div>
+              <div class="form-group">
+                  {{input value=short-title id='short-title' class="form-control" placeholder="Short Title"}}
+              </div>
+              <div class="form-group">
+                  {{input value=editor id='editor' class="form-control" placeholder="Editor"}}
+              </div>
+              <div class="row">
+                  <div class="col-sm-4 form-group">
+                      {{input value=publisher id='publisher' class="form-control" placeholder="Publisher"}}
+                  </div>
+                  <div class="col-sm-4 form-group">
+                      {{input value=year id='year' class="form-control" placeholder="Year"}}
+                  </div>
+                  <div class="col-sm-4 form-group">
+                      {{input value=location id='location' class="form-control" placeholder="Location"}}
+                  </div>
+              </div>
+              {{/if}}
             </form>
         </div>
       </div>

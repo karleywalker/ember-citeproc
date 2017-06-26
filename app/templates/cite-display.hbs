@@ -1,4 +1,19 @@
-<body>
-{{ citation-display }}
-{{ citation-form }}
-</body>
+    {{ citation-display }}
+    <div class="container">
+      <button class="btn btn-default" {{action "formShow"}}>Add Citation</button>
+      <button class="btn btn-default" {{action "formHide"}}>Cancel</button>
+      {{#if isClicked }}
+          {{ citation-form }}
+      {{/if}}
+    </div>
+
+<!-- <button {{action 'toggle'}}>Toggle</button>
+    {{#if expanded}}
+      <ol>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+      </ol>
+    {{/if}} -->
