@@ -92,8 +92,27 @@ export default Ember.Component.extend({
             }
           ]
         };
+        console.log(json);
         var newCite = JSON.stringify(json);
         this.makeCitations(newCite);
+      },
+      
+      submit: function(submitted) {
+        var jsonBlob = {
+              "id" : submitted.id,
+              "type" : submitted.type,
+              "title" : submitted.title,
+              "containerTitle" : submitted.containerTitle ,
+              "page": submitted.page,
+              "volume": submitted.volume,
+              "issue": submitted.issue,
+              "URL": submitted.URL,
+              "shortTitle": submitted.shortTitle,
+              "raw": submitted.raw,
+              "family" : submitted.family ,
+              "given" : submitted.given,
+        };
+        this.sendAction('saveToModel', jsonBlob);
       }
   }
 });
