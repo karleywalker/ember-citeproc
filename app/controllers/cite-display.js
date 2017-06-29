@@ -6,6 +6,10 @@ export default Ember.Controller.extend({
       formShow() {
         this.toggleProperty('isClicked');
       }
+      // saveToModel(s){
+      //   console.log(s);
+      //   return s;
+      // }
     }
     // attributeBindings: ['style'],
     // expanded: false,

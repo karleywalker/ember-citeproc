@@ -2,6 +2,11 @@ import Ember from 'ember';
 /* global CSL */
 
 export default Ember.Component.extend({
+
+  store: Ember.inject.service(),
+  didInsertElement() {
+    console.log("model ", this.get('model'));
+  },
   makeCitations: function(data){
      var citationData = JSON.parse(data);
      var chosenStyleID = "chicago-fullnote-bibliography";
@@ -58,13 +63,36 @@ export default Ember.Component.extend({
         newCite = json;
         that.makeCitations(JSON.stringify(newCite));
     });
-    //var newCite = document.getElementById("json-text").value;
-    //this.makeCitations(newCite);
   },
 
   actions: {
       updatesCitations: function() {
-        var newCite = document.getElementById("json-text").value;
+        var submitted = this.get('model');
+        var json = {
+          "items": [
+            {
+              "id" : submitted.id,
+              "type" : submitted.type,
+              "title" : submitted.title,
+              "containerTitle" : submitted.containerTitle ,
+              "page": submitted.page,
+              "volume": submitted.volume,
+              "issue": submitted.issue,
+              "URL": submitted.URL,
+              "shortTitle": submitted.shortTitle,
+              "issued": {
+                "raw": submitted.raw
+              },
+              "author" : [
+                {
+                  "family" : submitted.family ,
+                  "given" : submitted.given
+                }
+              ]
+            }
+          ]
+        };
+        var newCite = JSON.stringify(json);
         this.makeCitations(newCite);
       }
   }
