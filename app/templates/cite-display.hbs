@@ -1,8 +1,9 @@
-    {{ citation-display model=model submitted=model submit="submit" store=store saveToModel="saveToModel"}}
     <div class="container">
-      <button class="btn btn-default" {{action "formShow"}}>Add Citation</button>
-      <button class="btn btn-default" {{action "formHide"}}>Cancel</button>
+      <!-- <button class="btn btn-default" {{action "formShow"}}>Add Citation</button> -->
+      <!-- <button class="btn btn-default" {{action "formHide"}}>Cancel</button> -->
       <!-- {{#if isClicked }}
           {{ citation-form submitted=model submit="submit" store=store saveToModel="saveToModel"}}
       {{/if}} -->
+      {{ citation-display model=model submitted=model submit="submit" store=store saveToModel="saveToModel"}}
+
     </div>

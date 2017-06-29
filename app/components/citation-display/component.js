@@ -4,9 +4,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   store: Ember.inject.service(),
-  didInsertElement() {
-    console.log("model ", this.get('model'));
-  },
+
   makeCitations: function(data){
      var citationData = JSON.parse(data);
      var chosenStyleID = "chicago-fullnote-bibliography";
@@ -54,16 +52,23 @@ export default Ember.Component.extend({
        content.innerHTML = processorOutput();
    },
 
-  didRender(){
-    this._super(...arguments);
-    var newCite = "";
-    var that = this;
+  // didRender(){
+  //   this._super(...arguments);
+  //   var newCite = "";
+  //   var that = this;
+  //
+  //   $.get("sample.json", function(json){
+  //       newCite = json;
+  //       that.makeCitations(JSON.stringify(newCite));
+  //   });
+  // },
 
-    $.get("sample.json", function(json){
-        newCite = json;
-        that.makeCitations(JSON.stringify(newCite));
-    });
-  },
+
+    // prompt: true,
+    // content: [ "Article", "Journal", "Book"],
+    // optionValuePath: 'value',
+    // optionLabelPath: 'label',
+    isOpened: true,
 
   actions: {
       updatesCitations: function() {
@@ -92,11 +97,21 @@ export default Ember.Component.extend({
             }
           ]
         };
-        console.log(json);
         var newCite = JSON.stringify(json);
         this.makeCitations(newCite);
       },
-      
+      formExtend() {
+        this.toggleProperty('isOpened');
+      },
+
+      isClicked: false,
+      formShow() {
+          this.set('isClicked', true);
+      },
+      formHide() {
+          this.set('isClicked', false);
+      },
+
       submit: function(submitted) {
         var jsonBlob = {
               "id" : submitted.id,

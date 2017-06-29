@@ -4,6 +4,7 @@
 {{yield}}
 
 <div class="container">
+  <button class="btn btn-default" {{action "formShow"}}>Add Citation</button>
   <div class="row">
     <div class="col-sm-6" id="csl-outer-block">
       <div id="csl-inner-block">
@@ -11,7 +12,7 @@
       </div>
     </div>
   </div>
-  <!-- <button {{ action 'updatesCitations'}}>Update</button> -->
+  {{#if isClicked }}
   <div class="row">
     <div class="col-sm-6" id="csl-outer-block">
       <div id="csl-inner-block">
@@ -29,7 +30,6 @@
               <p>{{input value=attrs.submitted.family class="form-control" placeholder="Family Name"}}</p>
               <p>{{input value=attrs.submitted.given id='given-name' class="form-control" placeholder="Given Name"}}</p>
               <p>{{input value=attrs.submitted.raw id='raw' class="form-control" placeholder="raw"}}</p>
-
               <!-- <div class="row">
                 <div class="col-sm-5 form-group  elements">
                     {{input value=family-name id='family-name' class="form-control" placeholder="Family Name"}}
@@ -86,7 +86,8 @@
               <div class="form-group elements">
                   {{input value=url id='url' class="form-control" placeholder="URL"}}
               </div> -->
-              <p><button class="btn" {{action 'submit' submitted }} {{ action 'updatesCitations'}}>Submit</button></p>
+              <p><button class="btn" {{action 'submit' }} {{ action 'updatesCitations'}}>Submit</button>
+              <button class="btn" {{action "formHide"}}>Cancel</button></p>
               <!-- <div class="row">
                 <div class="col-sm-1"></div>
                 <button class="col-sm-10 btn btn-default" {{action "formExtend"}}>Advanced</button>
@@ -127,6 +128,7 @@
       </div>
     </div>
   </div>
+  {{/if}}
 </div>
 
 {{yield}}
