@@ -52,6 +52,9 @@ export default Ember.Component.extend({
        content.innerHTML = processorOutput();
    },
 
+  init() {
+    this._super(...arguments);
+  },
   // didRender(){
   //   this._super(...arguments);
   //   var newCite = "";
@@ -63,12 +66,12 @@ export default Ember.Component.extend({
   //   });
   // },
 
-
-    // prompt: true,
-    // content: [ "Article", "Journal", "Book"],
-    // optionValuePath: 'value',
-    // optionLabelPath: 'label',
-    isOpened: true,
+  prompt: true,
+  content: [ "Article", "Journal", "Book"],
+  optionValuePath: 'value',
+  optionLabelPath: 'label',
+  isOpened: true,
+  isClicked: false,
 
   actions: {
       updatesCitations: function() {
@@ -103,15 +106,37 @@ export default Ember.Component.extend({
       formExtend() {
         this.toggleProperty('isOpened');
       },
-
-      isClicked: false,
       formShow() {
-          this.set('isClicked', true);
+        this.set('isClicked', true);
+
       },
       formHide() {
-          this.set('isClicked', false);
+        //this.set('isClicked', false);
       },
+      formClear() {
+        //$("#myform").trigger("reset");
 
+       this.get('submitted').rollbackAttributes()
+        //this.set('submitted.id', '');
+        this.set('isClicked', false);
+        //setTimeout(() => {this.set('isClicked', false)}, 1000);
+
+        // ($('#myform').trigger('reset')).then(
+        //   function() {
+        //     this.set('isClicked', false);
+        //     console.log("hey");
+        //   }
+        // );
+        // var self = this;
+        // $("#myform").bind("reset", function(e, callback) {
+        //             callback();
+        //         });
+        //         let callback = function() {
+        //             self.set('isClicked', false);
+        //         }
+        //
+        //         $("#myform").trigger("reset", [callback]);
+      },
       submit: function(submitted) {
         var jsonBlob = {
               "id" : submitted.id,
