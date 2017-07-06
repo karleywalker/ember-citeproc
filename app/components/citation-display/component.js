@@ -67,11 +67,12 @@ export default Ember.Component.extend({
   // },
 
   prompt: true,
-  content: [ "Article", "Journal", "Book"],
+  content: [ "article-journal", "article-magazine", "book"],
   optionValuePath: 'value',
   optionLabelPath: 'label',
-  isOpened: true,
-  isClicked: false,
+  isOpened: false,
+  isClicked: true,
+  advancedIcon: 'fa fa-angle-down',
 
   actions: {
       updatesCitations: function() {
@@ -79,17 +80,27 @@ export default Ember.Component.extend({
         var json = {
           "items": [
             {
-              "id" : submitted.id,
               "type" : submitted.type,
               "title" : submitted.title,
-              "containerTitle" : submitted.containerTitle ,
+              "container-title" : submitted.containerTitle ,
               "page": submitted.page,
               "volume": submitted.volume,
               "issue": submitted.issue,
               "URL": submitted.URL,
+              "DOI": submitted.DOI,
+              "location": submitted.location,
+              "year": submitted.year,
+              "prefix": submitted.prefix,
+              "suffix": submitted.suffix,
+              "journalAbbr": submitted.journalAbbr,
+              "publisher": submitted.publisher,
+              "editor": submitted.editor,
               "shortTitle": submitted.shortTitle,
               "issued": {
-                "raw": submitted.raw
+                "raw": submitted.issued
+              },
+              "accessed": {
+                "raw": submitted.accessed
               },
               "author" : [
                 {
@@ -108,49 +119,60 @@ export default Ember.Component.extend({
       },
       formShow() {
         this.set('isClicked', true);
-
-      },
-      formHide() {
-        //this.set('isClicked', false);
       },
       formClear() {
-        //$("#myform").trigger("reset");
-
-       this.get('submitted').rollbackAttributes()
-        //this.set('submitted.id', '');
+        this.set('submitted.title', '');
+        this.set('submitted.type', '');
+        this.set('submitted.containerTitle', '');
+        this.set('submitted.page', '');
+        this.set('submitted.volume', '');
+        this.set('submitted.issue', '');
+        this.set('submitted.URL', '');
+        this.set('submitted.shortTitle', '');
+        this.set('submitted.issued', '');
+        this.set('submitted.accessed', '');
+        this.set('submitted.family', '');
+        this.set('submitted.given', '');
+        this.set('submitted.location', '');
+        this.set('submitted.year', '');
+        this.set('submitted.publisher', '');
+        this.set('submitted.editor', '');
+        this.set('submitted.DOI', '');
+        this.set('submitted.journalAbbr', '');
+        this.set('submitted.prefix', '');
+        this.set('submitted.suffix', '');
         this.set('isClicked', false);
-        //setTimeout(() => {this.set('isClicked', false)}, 1000);
-
-        // ($('#myform').trigger('reset')).then(
-        //   function() {
-        //     this.set('isClicked', false);
-        //     console.log("hey");
-        //   }
-        // );
-        // var self = this;
-        // $("#myform").bind("reset", function(e, callback) {
-        //             callback();
-        //         });
-        //         let callback = function() {
-        //             self.set('isClicked', false);
-        //         }
-        //
-        //         $("#myform").trigger("reset", [callback]);
       },
-      submit: function(submitted) {
+      changeClass: function() {
+        if (this.get('advancedIcon') === 'fa fa-angle-down'){
+          this.set('advancedIcon', 'fa fa-angle-up');
+        } else {
+          this.set('advancedIcon', 'fa fa-angle-down');
+        }
+      },
+      submit: function() {
+        var submitted = this.get('model');
         var jsonBlob = {
-              "id" : submitted.id,
-              "type" : submitted.type,
               "title" : submitted.title,
-              "containerTitle" : submitted.containerTitle ,
+              "type" : submitted.type,
+              "container-title" : submitted.containerTitle ,
               "page": submitted.page,
               "volume": submitted.volume,
               "issue": submitted.issue,
               "URL": submitted.URL,
               "shortTitle": submitted.shortTitle,
-              "raw": submitted.raw,
+              "issued": submitted.issued,
+              "issued": submitted.accessed,
               "family" : submitted.family ,
               "given" : submitted.given,
+              "location" : submitted.location,
+              "year" : submitted.year,
+              "publisher" : submitted.publisher,
+              "editor" : submitted.editor,
+              "journalAbbr" : submitted.journalAbbr,
+              "suffix" : submitted.suffix,
+              "prefix" : submitted.prefix,
+              "DOI" : submitted.DOI,
         };
         this.sendAction('saveToModel', jsonBlob);
       }

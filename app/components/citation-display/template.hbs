@@ -4,7 +4,7 @@
 {{yield}}
 
 <div class="container">
-  <button class="btn btn-default" {{action "formShow"}} >Add Citation</button>
+  <button class="btn btn-default" {{action "formShow"}}>Add Citation</button>
   <div class="row">
     <div class="col-sm-6" id="csl-outer-block">
       <div id="csl-inner-block">
@@ -16,28 +16,26 @@
   <div class="row">
     <div class="col-sm-6" id="csl-outer-block">
       <div id="csl-inner-block">
-        <div class="csl-content-block" id="csl-content-block">
+        <div class="csl-content-block" id="csl-form-block">
             <form class="add-citation-form" id="myform" type="post">
-              <p>{{input value=attrs.submitted.id class="form-control" placeholder="ID"}}</p>
-              <p>{{input value=attrs.submitted.type class="form-control" placeholder="Type"}}</p>
-              <p>{{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}</p>
-              <p>{{input value=attrs.submitted.raw id='raw' class="form-control" placeholder="raw"}}</p>
               <div class="row">
                 <div class="col-sm-5 form-group  elements">
                   <p>{{input value=attrs.submitted.family class="form-control" placeholder="Family Name"}}</p>
                 </div>
-                <!-- <div class="col-sm-2 form-group elements">
-                    {{input value=middle-initial id='middle-initial' class="form-control" placeholder="M.I."}}
-                </div> -->
                 <div class="col-sm-5 form-group elements">
                   <p>{{input value=attrs.submitted.given id='given-name' class="form-control" placeholder="Given Name"}}</p>
                 </div>
+                <button class="btn btn-default"><i class="fa fa-plus"></i></button>
               </div>
-              <div class="form-group elements">
-                <p>{{input value=attrs.submitted.title class="form-control" placeholder="Title"}}</p>
+              <div class="row">
+                <div class="col-sm-12 form-group elements">
+                  {{input value=attrs.submitted.title class="form-control" placeholder="Title"}}
+                </div>
               </div>
-              <div class="form-group elements">
-                <p>{{input value=attrs.submitted.containerTitle class="form-control" placeholder="container title"}}</p>
+              <div class="row">
+                <div class="col-sm-12 form-group elements">
+                  <p>{{input value=attrs.submitted.containerTitle class="form-control" placeholder="Container Title"}}</p>
+                </div>
               </div>
               <div class="row">
                   <div class="col-sm-4 form-group elements">
@@ -50,72 +48,68 @@
                     <p>{{input value=attrs.submitted.issue class="form-control" placeholder="Issue"}}</p>
                   </div>
               </div>
-              <!-- <div class="row">
+              <div class="row">
                   <div class="col-sm-6 form-group elements">
-                      {{input value=date-accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
+                      {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
                   </div>
                   <div class="col-sm-6 form-group elements">
-                      {{input value=date-issued id='date-issued' class="form-control" placeholder="Date Issued"}}
+                      {{input value=attrs.submitted.issued id='date-issued' class="form-control" placeholder="Date Issued"}}
                   </div>
-              </div> -->
-              <!-- <div class="row">
-                  <div class="col-sm-6 form-group elements">
-                      {{input value=doi id='doi' class="form-control" placeholder="DOI"}}
-                  </div>
-                  <div class="col-sm-6 form-group elements">
-                      <select disabled={{disabled}} class="{{class}}" {{action 'change' on='change'}}>
-                        {{#each content as |item|}}
-                          <option value={{item}}>
-                            <p>{{item}}</p>
-                          </option>
-                        {{/each}}
-                      </select>
-                  </div>
-              </div> -->
-              <div class="form-group elements">
-                <p>{{input value=attrs.submitted.URL class="form-control" placeholder="URL"}}</p>
               </div>
-
-
-              <p><button class="btn" {{action 'submit' }} {{ action 'updatesCitations'}}>Submit</button>
-              <button class="btn" {{action "formClear"}}  >Cancel</button></p>
-
-
-              <!-- <div class="row">
-                <div class="col-sm-1"></div>
-                <button class="col-sm-10 btn btn-default" {{action "formExtend"}}>Advanced</button>
-                <div class="col-sm-1"></div>
-              </div><br>
+              <div class="row">
+                  <div class="col-sm-6 form-group elements">
+                      {{input value=attrs.submitted.DOI id='DOI' class="form-control" placeholder="DOI"}}
+                  </div>
+                  <div class="col-sm-6 form-group elements">
+                      {{#power-select
+                        selected=submitted.type
+                        placeholder="Type"
+                        searchPlaceholder="Search"
+                        options=content
+                        onchange=(action (mut submitted.type))
+                        as |name|
+                      }}
+                        {{name}}
+                      {{/power-select}}
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 form-group elements">
+                  <p>{{input value=attrs.submitted.URL class="form-control" placeholder="URL"}}</p>
+                </div>
+              </div>
               {{#if isOpened }}
               <div class="row">
                 <div class="col-sm-3 form-group">
-                    {{input value=prefix id='prefix' class="form-control" placeholder="Prefix"}}
+                    {{input value=attrs.submitted.prefix id='prefix' class="form-control" placeholder="Prefix"}}
                 </div>
                 <div class="col-sm-3 form-group">
-                    {{input value=suffix id='suffix' class="form-control" placeholder="Suffix"}}
+                    {{input value=attrs.submitted.suffix id='suffix' class="form-control" placeholder="Suffix"}}
                 </div>
                 <div class="col-sm-6 form-group">
-                    {{input value=journal-abbr id='journal-abbr' class="form-control" placeholder="Journal Abbr."}}
+                    {{input value=attrs.submitted.journalAbbr id='journal-abbr' class="form-control" placeholder="Journal Abbr."}}
                 </div>
               </div>
               <div class="form-group">
-                  {{input value=short-title id='short-title' class="form-control" placeholder="Short Title"}}
+                  {{input value=attrs.submitted.editor id='editor' class="form-control" placeholder="Editor"}}
               </div>
-              <div class="form-group">
-                  {{input value=editor id='editor' class="form-control" placeholder="Editor"}}
-              </div>
+              <p>{{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}</p>
+
               <div class="row">
                   <div class="col-sm-4 form-group">
-                      {{input value=publisher id='publisher' class="form-control" placeholder="Publisher"}}
+                      {{input value=attrs.submitted.publisher id='publisher' class="form-control" placeholder="Publisher"}}
                   </div>
                   <div class="col-sm-4 form-group">
-                      {{input value=year id='year' class="form-control" placeholder="Year"}}
+                      {{input value=attrs.submitted.year id='year' class="form-control" placeholder="Year"}}
                   </div>
                   <div class="col-sm-4 form-group">
-                      {{input value=location id='location' class="form-control" placeholder="Location"}}
+                      {{input value=attrs.submitted.location id='location' class="form-control" placeholder="Location"}}
                   </div>
               </div>
-              {{/if}} -->
+              {{/if}}
+              <p><button class="btn" {{action 'submit' }} {{ action 'updatesCitations'}}>Submit</button>
+              <button class="btn" {{action "formClear"}}>Cancel</button>
+              <button class="btn" {{action "formExtend"}}{{action "changeClass"}}>Advanced <i id="advanced-icon" class="{{advancedIcon}}" ></i></button></p>
             </form>
         </div>
       </div>
