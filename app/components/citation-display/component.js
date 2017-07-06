@@ -55,19 +55,13 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
   },
-  // didRender(){
-  //   this._super(...arguments);
-  //   var newCite = "";
-  //   var that = this;
-  //
-  //   $.get("sample.json", function(json){
-  //       newCite = json;
-  //       that.makeCitations(JSON.stringify(newCite));
-  //   });
-  // },
 
+  isBook: false,
+  isArticleJournal: false,
+  isPaperConference: false,
+  isThesis: false,
   prompt: true,
-  content: [ "article-journal", "article-magazine", "book"],
+  content: [ "article-journal", "paper-conference", "thesis", "book"],
   optionValuePath: 'value',
   optionLabelPath: 'label',
   isOpened: false,
@@ -90,8 +84,8 @@ export default Ember.Component.extend({
               "DOI": submitted.DOI,
               "location": submitted.location,
               "year": submitted.year,
-              "prefix": submitted.prefix,
-              "suffix": submitted.suffix,
+              "archive": submitted.archive,
+              "archiveLocation": submitted.archiveLocation,
               "journalAbbr": submitted.journalAbbr,
               "publisher": submitted.publisher,
               "editor": submitted.editor,
@@ -139,8 +133,8 @@ export default Ember.Component.extend({
         this.set('submitted.editor', '');
         this.set('submitted.DOI', '');
         this.set('submitted.journalAbbr', '');
-        this.set('submitted.prefix', '');
-        this.set('submitted.suffix', '');
+        this.set('submitted.archive', '');
+        this.set('submitted.archiveLocation', '');
         this.set('isClicked', false);
       },
       changeClass: function() {
@@ -148,6 +142,24 @@ export default Ember.Component.extend({
           this.set('advancedIcon', 'fa fa-angle-up');
         } else {
           this.set('advancedIcon', 'fa fa-angle-down');
+        }
+      },
+      setFalse(){
+        this.set("isBook", false);
+        this.set("isArticleJournal", false);
+        this.set("isPaperConference", false);
+        this.set("isThesis", false);
+      },
+      typeSelected: function(selected){
+        this.send("setFalse");
+        if (selected === "book"){
+          this.set('isBook' , true );
+        } else if (selected === "article-journal") {
+          this.set('isArticleJournal', true);
+        } else if (selected === "paper-conference") {
+          this.set('isPaperConference', true);
+        } else if (selected === "thesis") {
+          this.set('isThesis', true);
         }
       },
       submit: function() {
@@ -170,11 +182,12 @@ export default Ember.Component.extend({
               "publisher" : submitted.publisher,
               "editor" : submitted.editor,
               "journalAbbr" : submitted.journalAbbr,
-              "suffix" : submitted.suffix,
-              "prefix" : submitted.prefix,
+              "archiveLocation" : submitted.archiveLocation,
+              "archive" : submitted.archive,
               "DOI" : submitted.DOI,
         };
         this.sendAction('saveToModel', jsonBlob);
+        console.log(submitted.type);
       }
   }
 });
