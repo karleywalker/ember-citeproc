@@ -2,9 +2,7 @@ import Ember from 'ember';
 /* global CSL */
 
 export default Ember.Component.extend({
-
   store: Ember.inject.service(),
-
   makeCitations: function(data){
      var citationData = JSON.parse(data);
      var chosenStyleID = "chicago-fullnote-bibliography";
@@ -60,10 +58,9 @@ export default Ember.Component.extend({
   isArticleJournal: false,
   isPaperConference: false,
   isThesis: false,
+  noSelection: true,
   prompt: true,
   content: [ "article-journal", "paper-conference", "thesis", "book"],
-  optionValuePath: 'value',
-  optionLabelPath: 'label',
   isOpened: false,
   isClicked: true,
   advancedIcon: 'fa fa-angle-down',

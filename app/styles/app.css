@@ -77,3 +77,8 @@
     background: #204762;
     margin-bottom: 1em;
 }
+#typeTrigger{
+  color: red;
+  padding: 10px;
+  font-size: 12px;
+}

@@ -63,7 +63,7 @@
                   <div class="col-sm-6 form-group elements">
                       {{input value=attrs.submitted.DOI id='DOI' class="form-control" placeholder="DOI"}}
                   </div>
-                  <div class="col-sm-6 form-group elements">
+                  <div id="typeselect" class="col-sm-6 form-group elements">
                       {{#power-select
                         selected=submitted.type
                         placeholder="Type"
@@ -136,8 +136,8 @@
                       {{input value=attrs.submitted.abstract class="form-control" placeholder="Abstract"}}
                     </div>
                   </div>
-                {{/if}}
-                {{#if isBook}}
+
+                {{else if isBook}}
                   <div>Book</div>
                   <div class="row">
                     <div class="col-sm-6 form-group">
@@ -201,8 +201,8 @@
                       {{input value=attrs.submitted.abstract class="form-control" placeholder="Abstract"}}
                     </div>
                   </div>
-                {{/if}}
-                {{#if isPaperConference}}
+
+                {{else if isPaperConference}}
                   <div>Paper Conference</div>
                     <div class="row">
                       <div class="col-sm-6 form-group">
@@ -260,8 +260,8 @@
                         {{input value=attrs.submitted.abstract class="form-control" placeholder="Abstract"}}
                       </div>
                     </div>
-                {{/if}}
-                {{#if isThesis}}
+
+                {{else if isThesis}}
                   <div>Thesis</div>
                   <div class="row">
                     <div class="col-sm-6 form-group">
@@ -303,11 +303,13 @@
                       {{input value=attrs.submitted.abstract class="form-control" placeholder="Abstract"}}
                     </div>
                   </div>
+                {{else}}
+                  <div id="typeTrigger">*Please Select a Type</div>
                 {{/if}}
               {{/if}}
               <p><button class="btn" {{action 'submit' }} {{ action 'updatesCitations'}}>Submit</button>
               <button class="btn" {{action "formClear"}}>Cancel</button>
-              <button class="btn" {{action "formExtend"}}{{action "changeClass"}}>Advanced <i id="advanced-icon" class="{{advancedIcon}}" ></i></button></p>
+              <button id="advancedBtn" class="btn" {{action "formExtend"}}{{action "changeClass"}}>Advanced <i id="advanced-icon" class="{{advancedIcon}}" ></i></button></p>
             </form>
           </div>
         </div>
