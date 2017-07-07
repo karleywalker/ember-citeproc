@@ -82,14 +82,6 @@ export default Ember.Component.extend({
               "issue": submitted.issue,
               "URL": submitted.URL,
               "DOI": submitted.DOI,
-              "location": submitted.location,
-              "year": submitted.year,
-              "archive": submitted.archive,
-              "archiveLocation": submitted.archiveLocation,
-              "journalAbbr": submitted.journalAbbr,
-              "publisher": submitted.publisher,
-              "editor": submitted.editor,
-              "shortTitle": submitted.shortTitle,
               "issued": {
                 "raw": submitted.issued
               },
@@ -101,7 +93,31 @@ export default Ember.Component.extend({
                   "family" : submitted.family ,
                   "given" : submitted.given
                 }
-              ]
+              ],
+              "publisher" : submitted.publisher,
+              "editor" : submitted.editor,
+              "container-title-short" : submitted.journalAbbr,
+              "archive_location" : submitted.archiveLocation,
+              "archive" : submitted.archive,
+              "source": submitted.libraryCatalog,
+              "title-short": submitted.shortTitle,
+              "location" : submitted.location,
+              "call-number": submitted.callNumber,
+              "collection-title": submitted.collectionTitle,
+              "ISSN": submitted.issn,
+              "reviewed-author": submitted.reviewedAuthor,
+              "translator": submitted.translator,
+              "abstract": submitted.abstract,
+              "ISBN": submitted.isbn,
+              "collection-editor": submitted.collectionEditor,
+              "publisher-place": submitted.location,
+              "event-place": submitted.location,
+              "number-of-pages": submitted.numberOfPages,
+              "number-of-volumes": submitted.numberOfVolumes,
+              "edition": submitted.edition,
+              "collection-number": submitted.collectionNumber,
+              "event": submitted.conferenceName,
+              "genre": submitted.genre,
             }
           ]
         };
@@ -172,22 +188,38 @@ export default Ember.Component.extend({
               "volume": submitted.volume,
               "issue": submitted.issue,
               "URL": submitted.URL,
-              "shortTitle": submitted.shortTitle,
               "issued": submitted.issued,
               "issued": submitted.accessed,
               "family" : submitted.family ,
               "given" : submitted.given,
-              "location" : submitted.location,
-              "year" : submitted.year,
+              "DOI" : submitted.DOI,
+
               "publisher" : submitted.publisher,
               "editor" : submitted.editor,
-              "journalAbbr" : submitted.journalAbbr,
-              "archiveLocation" : submitted.archiveLocation,
+              "container-title-short" : submitted.journalAbbr,
+              "archive_location" : submitted.archiveLocation,
               "archive" : submitted.archive,
-              "DOI" : submitted.DOI,
+              "source": submitted.libraryCatalog,
+              "title-short": submitted.shortTitle,
+              "location" : submitted.location,
+              "call-number": submitted.callNumber,
+              "collection-title": submitted.collectionTitle,
+              "ISSN": submitted.issn,
+              "reviewed-author": submitted.reviewedAuthor,
+              "translator": submitted.translator,
+              "abstract": submitted.abstract,
+              "ISBN": submitted.isbn,
+              "collection-editor": submitted.collectionEditor,
+              "publisher-place": submitted.location,
+              "event-place": submitted.location,
+              "number-of-pages": submitted.numberOfPages,
+              "number-of-volumes": submitted.numberOfVolumes,
+              "edition": submitted.edition,
+              "collection-number": submitted.collectionNumber,
+              "event": submitted.conferenceName,
+              "genre": submitted.genre,
         };
         this.sendAction('saveToModel', jsonBlob);
-        console.log(submitted.type);
       }
   }
 });
