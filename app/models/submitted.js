@@ -10,7 +10,7 @@ export default DS.Model.extend({
   issue: DS.attr('string'),
   URL: DS.attr('string'),
   DOI: DS.attr('string'),
-  author: DS.attr(),
+  author: DS.attr('array'),
   family: DS.attr('string'),
   given: DS.attr('string'),
   middleInitial: DS.attr('string'),

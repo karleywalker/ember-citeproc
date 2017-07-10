@@ -19,17 +19,20 @@
         <div class="csl-content-block" id="csl-form-block">
             <form class="add-citation-form" id="myform" type="post">
               <div class="row">
-                <div class="col-sm-4 form-group  elements">
-                  <p>{{input value=attrs.submitted.family class="form-control" placeholder="Family Name"}}</p>
+                <div id="authorRow">
+                  <div class="col-sm-4 form-group  elements">
+                    <p>{{input value=attrs.submitted.family class="form-control" placeholder="Family Name"}}</p>
+                  </div>
+                  <div class="col-sm-2 form-group  elements">
+                    <p>{{input value=middleInitial class="form-control" placeholder="M.I."}}</p>
+                  </div>
+                  <div class="col-sm-4 form-group elements">
+                    <p>{{input value=attrs.submitted.given id='given-name' class="form-control" placeholder="Given Name"}}</p>
+                  </div>
                 </div>
-                <div class="col-sm-2 form-group  elements">
-                  <p>{{input value=middleInitial class="form-control" placeholder="M.I."}}</p>
-                </div>
-                <div class="col-sm-4 form-group elements">
-                  <p>{{input value=attrs.submitted.given id='given-name' class="form-control" placeholder="Given Name"}}</p>
-                </div>
-                <button class="btn btn-default"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-default" {{action 'addAuthor'}}><i class="fa fa-plus"></i></button>
               </div>
+              <p id="tester"></p>
               <div class="row">
                 <div class="col-sm-12 form-group elements">
                   {{input value=attrs.submitted.title class="form-control" placeholder="Title"}}
@@ -136,7 +139,6 @@
                       {{input value=attrs.submitted.abstract class="form-control" placeholder="Abstract"}}
                     </div>
                   </div>
-
                 {{else if isBook}}
                   <div>Book</div>
                   <div class="row">
@@ -201,7 +203,6 @@
                       {{input value=attrs.submitted.abstract class="form-control" placeholder="Abstract"}}
                     </div>
                   </div>
-
                 {{else if isPaperConference}}
                   <div>Paper Conference</div>
                     <div class="row">
@@ -260,7 +261,6 @@
                         {{input value=attrs.submitted.abstract class="form-control" placeholder="Abstract"}}
                       </div>
                     </div>
-
                 {{else if isThesis}}
                   <div>Thesis</div>
                   <div class="row">

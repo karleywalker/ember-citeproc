@@ -58,8 +58,6 @@ export default Ember.Component.extend({
   isArticleJournal: false,
   isPaperConference: false,
   isThesis: false,
-  noSelection: true,
-  prompt: true,
   content: [ "article-journal", "paper-conference", "thesis", "book"],
   isOpened: false,
   isClicked: true,
@@ -89,7 +87,7 @@ export default Ember.Component.extend({
                 {
                   "family" : submitted.family ,
                   "given" : submitted.given
-                }
+                },
               ],
               "publisher" : submitted.publisher,
               "editor" : submitted.editor,
@@ -120,6 +118,7 @@ export default Ember.Component.extend({
         };
         var newCite = JSON.stringify(json);
         this.makeCitations(newCite);
+        console.log(json);
       },
       formExtend() {
         this.toggleProperty('isOpened');
@@ -174,6 +173,9 @@ export default Ember.Component.extend({
         } else if (selected === "thesis") {
           this.set('isThesis', true);
         }
+      },
+      addAuthor(){
+        Ember.$('#authorRow').clone().prependTo('#tester');
       },
       submit: function() {
         var submitted = this.get('model');
