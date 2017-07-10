@@ -2,7 +2,6 @@ import Ember from 'ember';
 /* global CSL */
 
 export default Ember.Component.extend({
-  store: Ember.inject.service(),
   makeCitations: function(data){
      var citationData = JSON.parse(data);
      var chosenStyleID = "chicago-fullnote-bibliography";
@@ -66,6 +65,20 @@ export default Ember.Component.extend({
   actions: {
       updatesCitations: function() {
         var submitted = this.get('model');
+        var obj = [];
+        var i;
+        var k;
+        var authors = $('.authorRow').length;
+        for (i = 0; i < authors; i++) {
+          var fam = ($('.authorRow')[i]).children[0].children[0].value;
+          var giv = ($('.authorRow')[i]).children[2].children[0].value;
+          var tmp = {
+            "family" : fam,
+            "given" : giv
+          };
+          obj.push(tmp);
+        };
+        console.log("obj", obj);
         var json = {
           "items": [
             {
@@ -83,12 +96,7 @@ export default Ember.Component.extend({
               "accessed": {
                 "raw": submitted.accessed
               },
-              "author" : [
-                {
-                  "family" : submitted.family ,
-                  "given" : submitted.given
-                },
-              ],
+              "author" : obj ,
               "publisher" : submitted.publisher,
               "editor" : submitted.editor,
               "container-title-short" : submitted.journalAbbr,
@@ -175,7 +183,7 @@ export default Ember.Component.extend({
         }
       },
       addAuthor(){
-        Ember.$('#authorRow').clone().prependTo('#tester');
+        $('.authorRow').first().clone().appendTo('.parentAuthorRow');
       },
       submit: function() {
         var submitted = this.get('model');
