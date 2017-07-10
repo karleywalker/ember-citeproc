@@ -65,20 +65,20 @@ export default Ember.Component.extend({
   actions: {
       updatesCitations: function() {
         var submitted = this.get('model');
-        var obj = [];
+        var authorObj = [];
         var i;
         var k;
         var authors = $('.authorRow').length;
         for (i = 0; i < authors; i++) {
-          var fam = ($('.authorRow')[i]).children[0].children[0].value;
-          var giv = ($('.authorRow')[i]).children[2].children[0].value;
-          var tmp = {
-            "family" : fam,
-            "given" : giv
+          var familyValue = ($('.authorRow')[i]).children[0].children[0].value;
+          var givenValue = ($('.authorRow')[i]).children[2].children[0].value;
+          var authorArray = {
+            "family" : familyValue,
+            "given" : givenValue
           };
-          obj.push(tmp);
+          authorObj.push(authorArray);
         };
-        console.log("obj", obj);
+        console.log("authorObj", authorObj);
         var json = {
           "items": [
             {
@@ -96,7 +96,7 @@ export default Ember.Component.extend({
               "accessed": {
                 "raw": submitted.accessed
               },
-              "author" : obj ,
+              "author" : authorObj ,
               "publisher" : submitted.publisher,
               "editor" : submitted.editor,
               "container-title-short" : submitted.journalAbbr,
@@ -126,7 +126,6 @@ export default Ember.Component.extend({
         };
         var newCite = JSON.stringify(json);
         this.makeCitations(newCite);
-        console.log(json);
       },
       formExtend() {
         this.toggleProperty('isOpened');
@@ -200,7 +199,6 @@ export default Ember.Component.extend({
               "family" : submitted.family ,
               "given" : submitted.given,
               "DOI" : submitted.DOI,
-
               "publisher" : submitted.publisher,
               "editor" : submitted.editor,
               "container-title-short" : submitted.journalAbbr,
