@@ -70,11 +70,12 @@ export default Ember.Component.extend({
         var k;
         var authors = $('.authorRow').length;
         for (i = 0; i < authors; i++) {
-          var familyValue = ($('.authorRow')[i]).children[0].children[0].value;
-          var givenValue = ($('.authorRow')[i]).children[2].children[0].value;
+          var givenValue = ($('.authorRow')[i]).children[0].children[0].value;
+          var middleInitialValue = ($('.authorRow')[i]).children[1].children[0].value;
+          var familyValue = ($('.authorRow')[i]).children[2].children[0].value;
           var authorArray = {
-            "family" : familyValue,
-            "given" : givenValue
+            "family" : familyValue ,
+            "given" : givenValue + " " + middleInitialValue
           };
           authorObj.push(authorArray);
         };
@@ -126,6 +127,7 @@ export default Ember.Component.extend({
         };
         var newCite = JSON.stringify(json);
         this.makeCitations(newCite);
+        console.log(json);
       },
       formExtend() {
         this.toggleProperty('isOpened');
@@ -200,7 +202,7 @@ export default Ember.Component.extend({
               "issued": submitted.issued,
               "issued": submitted.accessed,
               "family" : submitted.family ,
-              "given" : submitted.given,
+              "given" : submitted.given + " " + submitted.middleInitial,
               "DOI" : submitted.DOI,
               "publisher" : submitted.publisher,
               "editor" : submitted.editor,
