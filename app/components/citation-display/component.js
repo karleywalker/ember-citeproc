@@ -183,6 +183,9 @@ export default Ember.Component.extend({
       },
       addAuthor(){
         $('.authorRow').first().clone().appendTo('.parentAuthorRow');
+        this.set('submitted.family', '');
+        this.set('submitted.given', '');
+        this.set('submitted.middleInitial', '');
       },
       submit: function() {
         var submitted = this.get('model');
