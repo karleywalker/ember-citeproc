@@ -30,9 +30,10 @@
                     {{input value=attrs.submitted.family class="form-control" placeholder="Family Name"}}
                   </div>
                 </div>
-                <button class="btn btn-default" {{action 'addAuthor'}}><i class="fa fa-plus"></i></button>
+                <div class="col-sm-2">
+                  <button class="btn btn-default" {{action 'addAuthor'}}><i class="fa fa-plus"></i></button>
+                </div>
               </div>
-              <div class="tester"></div>
               <div class="row">
                 <div class="col-sm-12 form-group elements">
                   {{input value=attrs.submitted.title class="form-control" placeholder="Title"}}
@@ -40,18 +41,18 @@
               </div>
               <div class="row">
                 <div class="col-sm-12 form-group elements">
-                  <p>{{input value=attrs.submitted.containerTitle class="form-control" placeholder="Publication"}}</p>
+                  {{input value=attrs.submitted.containerTitle class="form-control" placeholder="Publication"}}
                 </div>
               </div>
               <div class="row">
                   <div class="col-sm-4 form-group elements">
-                    <p>{{input value=attrs.submitted.page class="form-control" placeholder="Page(s)"}}</p>
+                    {{input value=attrs.submitted.page class="form-control" placeholder="Page(s)"}}
                   </div>
                   <div class="col-sm-4 form-group elements">
-                    <p>{{input value=attrs.submitted.volume class="form-control" placeholder="Volume"}}</p>
+                    {{input value=attrs.submitted.volume class="form-control" placeholder="Volume"}}
                   </div>
                   <div class="col-sm-4 form-group elements">
-                    <p>{{input value=attrs.submitted.issue class="form-control" placeholder="Issue"}}</p>
+                    {{input value=attrs.submitted.issue class="form-control" placeholder="Issue"}}
                   </div>
               </div>
               <div class="row">
@@ -82,7 +83,7 @@
               </div>
               <div class="row">
                 <div class="col-sm-12 form-group elements">
-                  <p>{{input value=attrs.submitted.URL class="form-control" placeholder="URL"}}</p>
+                  {{input value=attrs.submitted.URL class="form-control" placeholder="URL"}}
                 </div>
               </div>
               {{#if isOpened }}
@@ -307,9 +308,10 @@
                   <div id="typeTrigger">*Please Select a Type</div>
                 {{/if}}
               {{/if}}
-              <p><button class="btn" {{action 'submit' }} {{ action 'updatesCitations'}}>Submit</button>
-              <button class="btn" {{action "formClear"}}>Cancel</button>
-              <button id="advancedBtn" class="btn" {{action "formExtend"}}{{action "changeClass"}}>Advanced <i id="advanced-icon" class="{{advancedIcon}}" ></i></button></p>
+              <button id="advancedBtn" class="btn btn-block btn-primary " {{action "formExtend"}}{{action "changeClass"}}>Advanced <i id="advanced-icon" class="{{advancedIcon}}" ></i></button>
+              <br>
+              <button class="btn btn-default submitBtn" {{action 'submit' }} {{ action 'updatesCitations'}}>Submit</button>
+              <button class="btn btn-default cancelBtn" {{action "formClear"}}>Cancel</button>
             </form>
           </div>
         </div>

@@ -23,9 +23,8 @@
 }
 
 #csl-form-block {
-    background:white;
-    border: solid black 1px;
-    padding: 0.5em;
+    background: #eee;
+    padding: 2em;
 }
 
 .json-data {
@@ -81,4 +80,17 @@
   color: red;
   padding: 10px;
   font-size: 12px;
+}
+.ember-power-select-trigger{
+  font-size: 14px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-color: #ccc;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.submitBtn, .cancelBtn {
+  width: 49%;
+}
+.row{
+  margin-top: 5px;
 }

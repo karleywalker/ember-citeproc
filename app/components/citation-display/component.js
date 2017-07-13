@@ -4,7 +4,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   makeCitations: function(data){
      var citationData = JSON.parse(data);
-     var chosenStyleID = "chicago-fullnote-bibliography";
+     var chosenStyleID = "apa-old-doi-prefix";
      var citations = {};
      var itemIDs = [];
 
