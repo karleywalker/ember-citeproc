@@ -156,6 +156,21 @@ export default Ember.Component.extend({
         this.set('submitted.journalAbbr', '');
         this.set('submitted.archive', '');
         this.set('submitted.archiveLocation', '');
+        this.set('submitted.libraryCatalog', '');
+        this.set('submitted.source', '');
+        this.set('submitted.callNumber', '');
+        this.set('submitted.collectionNumber', '');
+        this.set('submitted.collectionEditor', '');
+        this.set('submitted.collectionTitle', '');
+        this.set('submitted.reviewedAuthor', '');
+        this.set('submitted.translator', '');
+        this.set('submitted.abstract', '');
+        this.set('submitted.genre', '');
+        this.set('submitted.conferenceName', '');
+        this.set('submitted.issn', '');
+        this.set('submitted.isbn', '');
+        this.set('submitted.numberOfPages', '');
+        this.set('submitted.numberOfVolumes', '');
         this.set('isClicked', false);
       },
       changeClass: function() {
