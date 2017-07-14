@@ -57,7 +57,10 @@ export default Ember.Component.extend({
   isArticleJournal: false,
   isPaperConference: false,
   isThesis: false,
-  content: [ "article-journal", "paper-conference", "thesis", "book"],
+  isWebpage: false,
+  isDataset: false,
+  isPresentation: false,
+  content: [ "article-journal", "paper-conference", "thesis", "book", "webpage", "dataset", "presentation"],
   isOpened: false,
   isClicked: true,
   advancedIcon: 'fa fa-angle-down',
@@ -67,7 +70,6 @@ export default Ember.Component.extend({
         var submitted = this.get('model');
         var authorObj = [];
         var i;
-        var k;
         var authors = $('.authorRow').length;
         for (i = 0; i < authors; i++) {
           var givenValue = ($('.authorRow')[i]).children[0].children[0].value;
@@ -78,8 +80,7 @@ export default Ember.Component.extend({
             "given" : givenValue + " " + middleInitialValue
           };
           authorObj.push(authorArray);
-        };
-        console.log("authorObj", authorObj);
+        }
         var json = {
           "items": [
             {
@@ -122,12 +123,13 @@ export default Ember.Component.extend({
               "collection-number": submitted.collectionNumber,
               "event": submitted.conferenceName,
               "genre": submitted.genre,
+              "medium": submitted.medium,
+              "version": submitted.version,
             }
           ]
         };
         var newCite = JSON.stringify(json);
         this.makeCitations(newCite);
-        console.log(json);
       },
       formExtend() {
         this.toggleProperty('isOpened');
@@ -185,6 +187,9 @@ export default Ember.Component.extend({
         this.set("isArticleJournal", false);
         this.set("isPaperConference", false);
         this.set("isThesis", false);
+        this.set("isWebpage", false);
+        this.set("isDataset", false);
+        this.set("isPresentation", false);
       },
       typeSelected: function(selected){
         this.send("setFalse");
@@ -196,6 +201,12 @@ export default Ember.Component.extend({
           this.set('isPaperConference', true);
         } else if (selected === "thesis") {
           this.set('isThesis', true);
+        } else if (selected === "dataset") {
+          this.set('isDataset', true);
+        } else if (selected === "webpage") {
+          this.set('isWebpage', true);
+        } else if (selected === "presentation") {
+          this.set('isPresentation', true);
         }
       },
       addAuthor(){
@@ -243,6 +254,8 @@ export default Ember.Component.extend({
               "collection-number": submitted.collectionNumber,
               "event": submitted.conferenceName,
               "genre": submitted.genre,
+              "medium": submitted.medium,
+              "version": submitted.version,
         };
         this.sendAction('saveToModel', jsonBlob);
       }

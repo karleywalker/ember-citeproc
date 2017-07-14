@@ -41,6 +41,8 @@ export default DS.Model.extend({
   conferenceName: DS.attr('string'),
   genre: DS.attr('string'),
   location: DS.attr('string'),
+  version: DS.attr('string'),
+  medium: DS.attr('string'),
 });
 
 // export default DS.JSONSerializer.extend({
