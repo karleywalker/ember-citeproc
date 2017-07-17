@@ -149,6 +149,7 @@ export default Ember.Component.extend({
         this.set('submitted.issued', '');
         this.set('submitted.accessed', '');
         this.set('submitted.family', '');
+        this.set('submitted.middleInitial', '');
         this.set('submitted.given', '');
         this.set('submitted.location', '');
         this.set('submitted.year', '');
@@ -175,6 +176,7 @@ export default Ember.Component.extend({
         this.set('submitted.numberOfVolumes', '');
         this.set('submitted.medium', '');
         this.set('submitted.version', '');
+        this.set('submitted.edition', '');
         this.set('isClicked', false);
       },
       changeClass: function() {
