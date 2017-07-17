@@ -46,15 +46,7 @@
               </div>
               <div class="row">
                   <div class="col-sm-6 form-group elements">
-                      {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
-                  </div>
-                  <div class="col-sm-6 form-group elements">
-                      {{input value=attrs.submitted.issued id='date-issued' class="form-control" placeholder="Date Issued"}}
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-sm-6 form-group elements">
-                      {{input value=attrs.submitted.DOI id='DOI' class="form-control" placeholder="DOI"}}
+                      {{input value=attrs.submitted.issued id='date-issued' class="form-control" placeholder="Date"}}
                   </div>
                   <div id="typeselect" class="col-sm-6 form-group elements">
                       {{#power-select
@@ -79,11 +71,22 @@
                 {{#if isArticleJournal}}
                   <div>Article Journal</div>
                   <div class="row">
-                    <div class="col-sm-6 form-group">
+                    <div class="col-sm-4 form-group">
                       {{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}
                     </div>
-                    <div class="col-sm-6 form-group">
+                    <div class="col-sm-4 form-group">
                         {{input value=attrs.submitted.journalAbbr id='journal-abbr' class="form-control" placeholder="Journal Abbr."}}
+                    </div>
+                    <div class="col-sm-4 form-group elements">
+                        {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6 form-group elements">
+                        {{input value=attrs.submitted.DOI id='DOI' class="form-control" placeholder="DOI"}}
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        {{input value=attrs.submitted.issn id='issn' class="form-control" placeholder="ISSN"}}
                     </div>
                   </div>
                   <div class="row">
@@ -125,14 +128,11 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-sm-4 form-group">
+                    <div class="col-sm-6 form-group">
                         {{input value=attrs.submitted.archive id='archive' class="form-control" placeholder="Archive"}}
                     </div>
-                    <div class="col-sm-4 form-group">
+                    <div class="col-sm-6 form-group">
                         {{input value=attrs.submitted.archiveLocation id='archiveLocation' class="form-control" placeholder="Archive Location"}}
-                    </div>
-                    <div class="col-sm-4 form-group">
-                        {{input value=attrs.submitted.issn id='issn' class="form-control" placeholder="ISSN"}}
                     </div>
                   </div>
                   <div class="row">
@@ -143,8 +143,11 @@
                 {{else if isBook}}
                   <div>Book</div>
                   <div class="row">
-                    <div class="col-sm-12 form-group">
+                    <div class="col-sm-8 form-group">
                       {{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}
+                    </div>
+                    <div class="col-sm-4 form-group elements">
+                        {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
                     </div>
                   </div>
                   <div class="row">
@@ -212,13 +215,19 @@
                 {{else if isPaperConference}}
                   <div>Paper Conference</div>
                     <div class="row">
-                      <div class="col-sm-12 form-group">
+                      <div class="col-sm-8 form-group">
                         {{input value=attrs.submitted.conference class="form-control" placeholder="Conference Name"}}
+                      </div>
+                      <div class="col-sm-4 form-group elements">
+                          {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-sm-12 form-group">
+                      <div class="col-sm-6 form-group">
                           {{input value=attrs.submitted.publisherPlace class="form-control" placeholder="Location"}}
+                      </div>
+                      <div class="col-sm-6 form-group elements">
+                          {{input value=attrs.submitted.DOI id='DOI' class="form-control" placeholder="DOI"}}
                       </div>
                     </div>
                     <div class="row">
@@ -281,16 +290,19 @@
                     <div class="col-sm-8 form-group">
                       {{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}
                     </div>
-                    <div class="col-sm-4 form-group">
-                        {{input value=attrs.submitted.numberOfPages class="form-control" placeholder="No. of Pages"}}
+                    <div class="col-sm-4 form-group elements">
+                        {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-sm-6 form-group">
+                    <div class="col-sm-4 form-group">
                         {{input value=attrs.submitted.university class="form-control" placeholder="University"}}
                     </div>
-                    <div class="col-sm-6 form-group">
+                    <div class="col-sm-4 form-group">
                         {{input value=attrs.submitted.publisherPlace class="form-control" placeholder="Place"}}
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        {{input value=attrs.submitted.numberOfPages class="form-control" placeholder="No. of Pages"}}
                     </div>
                   </div>
                   <div class="row">
@@ -320,11 +332,16 @@
                 {{else if isDataset}}
                   <div>Dataset</div>
                   <div class="row">
-                    <div class="col-sm-6 form-group">
+                    <div class="col-sm-12 form-group">
                         {{input value=attrs.submitted.archive id='archive' class="form-control" placeholder="Data Repository"}}
                     </div>
+                  </div>
+                  <div class="row">
                     <div class="col-sm-6 form-group">
                         {{input value=attrs.submitted.archiveLocation id='archiveLocation' class="form-control" placeholder="Data Repository I.D."}}
+                    </div>
+                    <div class="col-sm-6 form-group elements">
+                        {{input value=attrs.submitted.DOI id='DOI' class="form-control" placeholder="DOI"}}
                     </div>
                   </div>
                   <div class="row">
@@ -343,8 +360,11 @@
                 {{else if isPresentation}}
                   <div>Speech/Presentation</div>
                   <div class="row">
-                    <div class="col-sm-12 form-group">
+                    <div class="col-sm-8 form-group">
                       {{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}
+                    </div>
+                    <div class="col-sm-4 form-group elements">
+                        {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
                     </div>
                   </div>
                   <div class="row">
@@ -368,8 +388,11 @@
                 {{else if isWebpage}}
                   <div>Webpage</div>
                   <div class="row">
-                    <div class="col-sm-12 form-group">
+                    <div class="col-sm-8 form-group">
                       {{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}
+                    </div>
+                    <div class="col-sm-4 form-group elements">
+                        {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
                     </div>
                   </div>
                   <div class="row">
