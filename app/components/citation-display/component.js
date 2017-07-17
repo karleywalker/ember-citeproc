@@ -60,7 +60,7 @@ export default Ember.Component.extend({
   isWebpage: false,
   isDataset: false,
   isPresentation: false,
-  content: [ "article-journal", "paper-conference", "thesis", "book", "webpage", "dataset", "presentation"],
+  content: [ "Webpage", "Dataset", "Presentation", "Article-Journal", "Paper-Conference", "Thesis", "Book"],
   isOpened: false,
   isClicked: true,
   advancedIcon: 'fa fa-angle-down',
@@ -173,6 +173,8 @@ export default Ember.Component.extend({
         this.set('submitted.isbn', '');
         this.set('submitted.numberOfPages', '');
         this.set('submitted.numberOfVolumes', '');
+        this.set('submitted.medium', '');
+        this.set('submitted.version', '');
         this.set('isClicked', false);
       },
       changeClass: function() {

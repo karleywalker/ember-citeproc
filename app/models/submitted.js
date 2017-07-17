@@ -44,19 +44,3 @@ export default DS.Model.extend({
   version: DS.attr('string'),
   medium: DS.attr('string'),
 });
-
-// export default DS.JSONSerializer.extend({
-//   serialize(snapshot, options) {
-//     var json = {
-//       givenName: snapshot.attr('string'),
-//       middleInitial: snapshot.attr('string'),
-//       familyName: snapshot.hasMany('string', { ids: true })
-//     };
-//
-//     if (options.includeId) {
-//       json.POST_ID_ = snapshot.id;
-//     }
-//
-//     return json;
-//   }
-// });
