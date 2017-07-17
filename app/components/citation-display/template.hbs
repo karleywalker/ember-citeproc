@@ -45,17 +45,6 @@
                 </div>
               </div>
               <div class="row">
-                  <div class="col-sm-4 form-group elements">
-                    {{input value=attrs.submitted.page class="form-control" placeholder="Page(s)"}}
-                  </div>
-                  <div class="col-sm-4 form-group elements">
-                    {{input value=attrs.submitted.volume class="form-control" placeholder="Volume"}}
-                  </div>
-                  <div class="col-sm-4 form-group elements">
-                    {{input value=attrs.submitted.issue class="form-control" placeholder="Issue"}}
-                  </div>
-              </div>
-              <div class="row">
                   <div class="col-sm-6 form-group elements">
                       {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
                   </div>
@@ -101,6 +90,17 @@
                     </div>
                   </div>
                   <div class="row">
+                      <div class="col-sm-4 form-group elements">
+                        {{input value=attrs.submitted.page class="form-control" placeholder="Page(s)"}}
+                      </div>
+                      <div class="col-sm-4 form-group elements">
+                        {{input value=attrs.submitted.volume class="form-control" placeholder="Volume"}}
+                      </div>
+                      <div class="col-sm-4 form-group elements">
+                        {{input value=attrs.submitted.issue class="form-control" placeholder="Issue"}}
+                      </div>
+                  </div>
+                  <div class="row">
                     <div class="col-sm-6 form-group">
                         {{input value=attrs.submitted.source id='source' class="form-control" placeholder="Library Catalog"}}
                     </div>
@@ -143,18 +143,7 @@
                 {{else if isBook}}
                   <div>Book</div>
                   <div class="row">
-                    <div class="col-sm-6 form-group">
-                        {{input value=attrs.submitted.archive id='archive' class="form-control" placeholder="Archive"}}
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        {{input value=attrs.submitted.archiveLocation id='archiveLocation' class="form-control" placeholder="Archive Location"}}
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6 form-group">
-                        {{input value=attrs.submitted.source id='source' class="form-control" placeholder="Library Catalog"}}
-                    </div>
-                    <div class="col-sm-6 form-group">
+                    <div class="col-sm-12 form-group">
                       {{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}
                     </div>
                   </div>
@@ -167,25 +156,28 @@
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-sm-6 form-group">
+                        {{input value=attrs.submitted.callNumber id='callNumber' class="form-control" placeholder="Call Number"}}
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        {{input value=attrs.submitted.isbn id='isbn' class="form-control" placeholder="ISBN"}}
+                    </div>
+                  </div>
+                  <div class="row">
                       <div class="col-sm-4 form-group">
-                          {{input value=attrs.submitted.callNumber id='callNumber' class="form-control" placeholder="Call Number"}}
+                          {{input value=attrs.submitted.collectionEditor class="form-control" placeholder="Series Editor"}}
                       </div>
                       <div class="col-sm-4 form-group">
                           {{input value=attrs.submitted.collectionTitle id='collectionTitle' class="form-control" placeholder="Series"}}
                       </div>
                       <div class="col-sm-4 form-group">
-                          {{input value=attrs.submitted.isbn id='isbn' class="form-control" placeholder="ISBN"}}
+                        {{input value=attrs.submitted.collectionNumber class="form-control" placeholder="Series No."}}
                       </div>
                   </div>
                   <div class="row">
-                    <div class="col-sm-6 form-group">
-                        {{input value=attrs.submitted.collectionEditor class="form-control" placeholder="Series Editor"}}
+                    <div class="col-sm-3 form-group elements">
+                      {{input value=attrs.submitted.volume class="form-control" placeholder="Volume"}}
                     </div>
-                    <div class="col-sm-6 form-group">
-                        {{input value=attrs.submitted.publisherPlace class="form-control" placeholder="Pub. Location"}}
-                    </div>
-                  </div>
-                  <div class="row">
                     <div class="col-sm-3 form-group">
                         {{input value=attrs.submitted.numberOfVolumes class="form-control" placeholder="No. of Volumes"}}
                     </div>
@@ -195,8 +187,21 @@
                     <div class="col-sm-3 form-group">
                         {{input value=attrs.submitted.edition class="form-control" placeholder="Edition"}}
                     </div>
-                    <div class="col-sm-3 form-group">
-                      {{input value=attrs.submitted.collectionNumber class="form-control" placeholder="Series No."}}
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6 form-group">
+                        {{input value=attrs.submitted.source id='source' class="form-control" placeholder="Library Catalog"}}
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        {{input value=attrs.submitted.publisherPlace class="form-control" placeholder="Pub. Location"}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6 form-group">
+                        {{input value=attrs.submitted.archive id='archive' class="form-control" placeholder="Archive"}}
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        {{input value=attrs.submitted.archiveLocation id='archiveLocation' class="form-control" placeholder="Archive Location"}}
                     </div>
                   </div>
                   <div class="row">
@@ -213,6 +218,14 @@
                       <div class="col-sm-6 form-group">
                           {{input value=attrs.submitted.archiveLocation id='archiveLocation' class="form-control" placeholder="Archive Location"}}
                       </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group elements">
+                          {{input value=attrs.submitted.page class="form-control" placeholder="Page(s)"}}
+                        </div>
+                        <div class="col-sm-6 form-group elements">
+                          {{input value=attrs.submitted.volume class="form-control" placeholder="Volume"}}
+                        </div>
                     </div>
                     <div class="row">
                       <div class="col-sm-6 form-group">
@@ -330,8 +343,13 @@
                 {{else if isPresentation}}
                   <div>Speech/Presentation</div>
                   <div class="row">
-                    <div class="col-sm-6 form-group">
+                    <div class="col-sm-12 form-group">
                       {{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 form-group">
+                        {{input value=attrs.submitted.event class="form-control" placeholder="Meeting Name"}}
                     </div>
                   </div>
                   <div class="row">
@@ -339,13 +357,8 @@
                         {{input value=attrs.submitted.publisherPlace class="form-control" placeholder="Place"}}
                     </div>
                     <div class="col-sm-6 form-group">
-                        {{input value=attrs.submitted.event class="form-control" placeholder="Meeting Name"}}
+                        {{input value=attrs.submitted.genre class="form-control" placeholder="Genre"}}
                     </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-sm-4 form-group">
-                          {{input value=attrs.submitted.genre class="form-control" placeholder="Genre"}}
-                      </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-12 form-group elements">
@@ -360,11 +373,11 @@
                     </div>
                   </div>
                   <div class="row">
-                      <div class="col-sm-4 form-group">
+                      <div class="col-sm-6 form-group">
                           {{input value=attrs.submitted.genre class="form-control" placeholder="Genre"}}
                       </div>
-                      <div class="col-sm-4 form-group">
-                          {{input value=attrs.submitted.translator class="form-control" placeholder="translator"}}
+                      <div class="col-sm-6 form-group">
+                          {{input value=attrs.submitted.translator class="form-control" placeholder="Translator"}}
                       </div>
                   </div>
                   <div class="row">

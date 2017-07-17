@@ -60,7 +60,7 @@ export default Ember.Component.extend({
   isWebpage: false,
   isDataset: false,
   isPresentation: false,
-  content: [ "Webpage", "Dataset", "Presentation", "Article-Journal", "Paper-Conference", "Thesis", "Book"],
+  content: [ "webpage", "dataset", "presentation", "article-journal", "paper-conference", "thesis", "book"],
   isOpened: false,
   isClicked: true,
   advancedIcon: 'fa fa-angle-down',
