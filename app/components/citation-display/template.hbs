@@ -45,10 +45,10 @@
                 </div>
               </div>
               <div class="row">
-                  <div class="col-sm-6 col-xs-6 form-group elements">
+                  <div class="col-sm-6 form-group elements">
                       {{input value=attrs.submitted.issued id='date-issued' class="form-control" placeholder="Date"}}
                   </div>
-                  <div id="typeselect" class="col-sm-6 col-xs-6 form-group elements">
+                  <div id="typeselect" class="col-sm-6 form-group elements">
                       {{#power-select
                         selected=submitted.type
                         placeholder="Type"
@@ -74,10 +74,10 @@
                     <div class="col-sm-4 col-xs-12 form-group">
                       {{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}
                     </div>
-                    <div class="col-sm-4 col-xs-6 form-group">
+                    <div class="col-sm-4 form-group">
                         {{input value=attrs.submitted.journalAbbr id='journal-abbr' class="form-control" placeholder="Journal Abbr."}}
                     </div>
-                    <div class="col-sm-4 col-xs-6 form-group elements">
+                    <div class="col-sm-4 form-group elements">
                         {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
                     </div>
                   </div>
@@ -121,7 +121,7 @@
                         {{input value=attrs.submitted.source id='source' class="form-control" placeholder="Library Catalog"}}
                     </div>
                     <div class="col-sm-4 col-xs-6 form-group">
-                        {{input value=attrs.submitted.callNumber id='callNumber' class="form-control" placeholder="Call Number"}}
+                        {{input value=attrs.submitted.callNumber id='callNumber' class="form-control" placeholder="Call No."}}
                     </div>
                     <div class="col-sm-4 col-xs-6 form-group">
                         {{input value=attrs.submitted.collectionTitle id='collectionTitle' class="form-control" placeholder="Series"}}
