@@ -1,3 +1,6 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 #integrator-notes li {
     margin-bottom: 1em;
     background: #efefef;
@@ -20,13 +23,12 @@
     background:white;
     /*border: solid black 1px;*/
     padding: 0.5em;
+    font-family: 'Open Sans', sans-serif;
 }
-
 #csl-form-block {
-    background: #eee;
+    background: aliceblue;
     padding: 2em;
 }
-
 .json-data {
     width: 50em;
     height:500px;
@@ -75,6 +77,7 @@
     color: white ;
     background: #204762;
     margin-bottom: 1em;
+    font-family: 'Open Sans', sans-serif;
 }
 #typeTrigger{
   color: red;
@@ -91,6 +94,9 @@
 .submitBtn, .cancelBtn {
   width: 49%;
 }
+button:hover {
+    background-color: red;
+  }
 .row{
   margin-top: 5px;
 }
