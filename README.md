@@ -1,7 +1,6 @@
-# ember-citeproc
+# Citation Widget
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+An Ember widgets that populates citations with a form using citeproc-js.
 
 ## Prerequisites
 
@@ -14,7 +13,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/karleywalker/ember-citeproc.git`
 * `cd ember-citeproc`
 * `npm install`
 
@@ -37,14 +36,27 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
+## Incomplete and Unimplemented aspects of this project
+* Unfinished Schema
+Authors :
+Suffix
+Comma-suffix
+Static-ordering
+parse-names
+Prefix
+non-dropping-particle
+dropping-particle
+Literal
+Date-field types
+*accessed*
+*issued*
+Archived
+Original
+Container
+Event-date
+submitted
+More types - only have [ webpage, dataset, book, thesis, presentation, conference, article-journal ]
+“Extra” fields
+Dealing with non-english languages ?
 
-Specify what it takes to deploy your app.
 
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
