@@ -38,15 +38,15 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ## Incomplete and Unimplemented aspects of this project
 * Unfinished Schema
-Authors :
-Suffix
-Comma-suffix
-Static-ordering
-parse-names
-Prefix
-non-dropping-particle
-dropping-particle
-Literal
+  * Authors :
+    * Suffix
+    * Comma-suffix
+    * Static-ordering
+    * parse-names
+    * Prefix
+    * non-dropping-particle
+    * dropping-particle
+    * Literal
 Date-field types
 *accessed*
 *issued*
