@@ -37,7 +37,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build --environment production` (production)
 
 ## Incomplete and Unimplemented aspects of this project
-* Unfinished Schema
+### * Unfinished Schema
   * Authors :
     * Suffix
     * Comma-suffix
@@ -55,11 +55,9 @@ Make use of the many generators for code, try `ember help generate` for more det
     * Event-date
     * submitted
   
+  
+###  * Unimplemented / Future Features
+  * Reorder Authors
   * More types - currently have [ webpage, dataset, book, thesis, presentation, conference, article-journal ]
   * “Extra” fields
   * Dealing with non-english languages ?
-  
-* Unimplemented / Future Features
-  * Reorder Authors
-
-
