@@ -48,15 +48,18 @@ Make use of the many generators for code, try `ember help generate` for more det
     * dropping-particle
     * Literal
 
-* Date-field types
-  * Archived
-  * Original
-  * Container
-  * Event-date
-  * submitted
+  * Date-field types
+    * Archived
+    * Original
+    * Container
+    * Event-date
+    * submitted
   
-* More types - currently have [ webpage, dataset, book, thesis, presentation, conference, article-journal ]
-* “Extra” fields
-* Dealing with non-english languages ?
+  * More types - currently have [ webpage, dataset, book, thesis, presentation, conference, article-journal ]
+  * “Extra” fields
+  * Dealing with non-english languages ?
+  
+* Unimplemented / Future Features
+  * Reorder Authors
 
 
