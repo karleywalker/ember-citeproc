@@ -408,6 +408,53 @@
                       {{input value=attrs.submitted.abstract class="form-control" placeholder="Abstract"}}
                     </div>
                   </div>
+                {{else if isManuscript}}
+                  <div class="subtitle">Manuscript</div>
+                  <div class="row">
+                    <div class="col-sm-12 form-group">
+                      {{input value=attrs.submitted.shortTitle class="form-control" placeholder="Short Title"}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6 col-xs-6 form-group elements">
+                        {{input value=attrs.submitted.accessed id='date-accessed' class="form-control" placeholder="Date Accessed"}}
+                    </div>
+                    <div class="col-sm-6 col-xs-6 form-group">
+                      {{input value=attrs.submitted.numberOfPages class="form-control" placeholder="No. of Pages"}}
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-6 col-xs-6 form-group">
+                          {{input value=attrs.submitted.genre class="form-control" placeholder="Genre"}}
+                      </div>
+                      <div class="col-sm-6 col-xs-6 form-group">
+                          {{input value=attrs.submitted.translator class="form-control" placeholder="Translator"}}
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4 col-xs-12 form-group">
+                        {{input value=attrs.submitted.source id='source' class="form-control" placeholder="Library Catalog"}}
+                    </div>
+                    <div class="col-sm-4 col-xs-6 form-group">
+                        {{input value=attrs.submitted.callNumber id='callNumber' class="form-control" placeholder="Call No."}}
+                    </div>
+                    <div class="col-sm-4 col-xs-6 form-group">
+                        {{input value=attrs.submitted.location class="form-control" placeholder="Place"}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6 col-xs-6 form-group">
+                        {{input value=attrs.submitted.archive id='archive' class="form-control" placeholder="Archive"}}
+                    </div>
+                    <div class="col-sm-6 col-xs-6 form-group">
+                        {{input value=attrs.submitted.archiveLocation id='archiveLocation' class="form-control" placeholder="Archive Location"}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 form-group elements">
+                      {{input value=attrs.submitted.abstract class="form-control" placeholder="Abstract"}}
+                    </div>
+                  </div>
                 {{else}}
                   <div id="typeTrigger">*Please Select a Type</div>
                 {{/if}}

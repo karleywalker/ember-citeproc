@@ -59,8 +59,9 @@ export default Ember.Component.extend({
   isThesis: false,
   isWebpage: false,
   isDataset: false,
+  isManuscript: false,
   isPresentation: false,
-  content: [ "webpage", "dataset", "presentation", "article-journal", "paper-conference", "thesis", "book"],
+  content: [ "webpage", "dataset", "presentation", "article-journal", "paper-conference", "thesis", "book", "manuscript"],
   isOpened: false,
   isClicked: true,
   advancedIcon: 'fa fa-angle-down',
@@ -194,6 +195,7 @@ export default Ember.Component.extend({
         this.set("isWebpage", false);
         this.set("isDataset", false);
         this.set("isPresentation", false);
+        this.set("isManuscript", false);
       },
       typeSelected: function(selected){
         this.send("setFalse");
@@ -209,6 +211,8 @@ export default Ember.Component.extend({
           this.set('isDataset', true);
         } else if (selected === "webpage") {
           this.set('isWebpage', true);
+        }  else if (selected === "manuscript") {
+          this.set('isManuscript', true);
         } else if (selected === "presentation") {
           this.set('isPresentation', true);
         }
