@@ -62,3 +62,4 @@ Make use of the many generators for code, try `ember help generate` for more det
   * “Extra” fields
   * Dealing with non-english languages 
   * WYSIWIG Editing
+  * Download : can download different file types but only sends information as HTML [right now]
