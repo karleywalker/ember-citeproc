@@ -131,6 +131,15 @@ export default Ember.Component.extend({
         };
         var newCite = JSON.stringify(json);
         this.makeCitations(newCite);
+        if ($(".downloadCite")[0]){
+           document.getElementById('downloadButton').removeChild(document.getElementById("innerDownloadButton"));
+        }
+          var a = document.getElementById('downloadButton').appendChild(document.createElement("a"));
+          a.className = "btn btn-default pull-right downloadCite";
+          a.id = "innerDownloadButton";
+          a.download = "citation.xml";
+          a.href = "data:text/xml," + document.getElementById("csl-content-block").innerHTML;
+          a.innerHTML = "Download as XML";
       },
       formExtend() {
         this.toggleProperty('isOpened');

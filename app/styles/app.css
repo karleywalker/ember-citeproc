@@ -9,21 +9,27 @@ body {
 .citation {
     background: #dddddd;
 }
+.title{
+  font-size: 18px;
+  vertical-align: -webkit-baseline-middle;
+}
+.downloadCitation{
+  float: right;
+}
 #csl-outer-block {
     max-width: 50em;
     padding: 10px;
+  }
+#citationUnit {
+    border: solid black 1px;
+    padding: 15px;
+    max-width: 50em;
 }
 #csl-inner-block {
     max-width: 50em;
     bottom: 17em;
     left: 2em;
     padding: 10px;
-}
-#csl-content-block {
-    background:white;
-    /*border: solid black 1px;*/
-    padding: 0.5em;
-    font-family: 'Open Sans', sans-serif;
 }
 #csl-form-block {
     background: aliceblue;
